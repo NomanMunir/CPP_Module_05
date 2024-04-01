@@ -2,7 +2,7 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
-
+class Bureaucrat;
 class Form {
 	private:
 		const std::string _name;
@@ -15,22 +15,29 @@ class Form {
 		~Form();
 		Form &operator=(const Form &rhs);
 		std::string getName() const;
-		bool getIsSigned();
-		int getRequiredGrade();
+		bool getIsSigned() const;
+		int getRequiredGrade() const;
 		void beSigned(Bureaucrat& bur);
 
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw() return ("Grade is too high!");
+			virtual const char *what() const throw()
+			{
+				return ("Grade is too high!");
+			} 
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw() return ("Grade is too low!");
+			virtual const char *what() const throw() 
+			{
+				return ("Grade is too low!");
+			}
 	};
 
 };
+std::ostream&   operator<<( std::ostream& o, const Form& rhs );
 
 #endif // !FORM_HPP
