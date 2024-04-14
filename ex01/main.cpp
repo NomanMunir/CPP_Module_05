@@ -1,17 +1,20 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-int main( void )
+
+int main()
 {
-
-    try {
-        Bureaucrat bureaucrat("ash",11);
-        Form form("formName", 10);
-
-        bureaucrat.signForm(form);
-
-        std::cout << form << std::endl;
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
+    try
+    {
+      Bureaucrat a = Bureaucrat("Nauman", 11);
+      Form b = Form("school form", 2, 4);
+      std::cout << a << std::endl;
+      std::cout << b << std::endl;
+      a.signForm(b);
+      a.signForm(b);
+      std::cout << b << std::endl;
     }
-    return 0;
+    catch (std::exception& e)
+    {
+        std::cout << e.what() << std::endl; 
+    }
+    return (0);
 }
