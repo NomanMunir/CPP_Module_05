@@ -24,6 +24,8 @@ Form& Form::operator=(const Form& rhs)
   return (*this);
 }
 
+Form::~Form() {}
+
 std::string Form::getName() const { return (_name); }
 
 int Form::getGrade() const { return (_grade); }

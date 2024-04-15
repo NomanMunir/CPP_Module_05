@@ -8,6 +8,8 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name), _
       throw  GradeTooLowException();
 }
 
+Bureaucrat::~Bureaucrat() {}
+
 Bureaucrat::Bureaucrat(const Bureaucrat& other): _grade(other._grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) { _grade = rhs._grade; return (*this); }
