@@ -2,16 +2,18 @@
 #define INTERN_HPP
 
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 class Intern
 {
   public:
     ~Intern();
-    Intern(std::string& name, std::string& target);
+    Intern();
     Intern(const Intern& other);
     Intern& operator=(const Intern& rhs);
-  private:
-    Intern();
+    AForm * makeForm(const std::string& formName, const std::string& formTarget);
 };
 
 #endif // INTERN_HPP

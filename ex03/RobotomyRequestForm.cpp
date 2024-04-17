@@ -14,6 +14,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
   return *this;
 }
 
+AForm * RobotomyRequestForm::clone() const {
+  return new RobotomyRequestForm(*this);
+}
+
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
   AForm::execute(executor);
   std::cout << "* Makes some drilling noises *" << std::endl;

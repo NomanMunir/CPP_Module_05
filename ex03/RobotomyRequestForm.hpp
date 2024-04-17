@@ -9,13 +9,14 @@ class RobotomyRequestForm : public AForm {
 public:
   RobotomyRequestForm(const std::string& target);
   RobotomyRequestForm(const RobotomyRequestForm& other);
-  virtual ~RobotomyRequestForm();
-
+  ~RobotomyRequestForm();
+  AForm * clone() const;
   RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 
   virtual void execute(const Bureaucrat& executor) const;
 
 private:
+  RobotomyRequestForm();
   std::string _target;
 };
 

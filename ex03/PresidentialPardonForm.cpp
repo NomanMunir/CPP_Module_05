@@ -4,6 +4,20 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), _target(other._target) {}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other) {
+  if (this != &other) {
+    AForm::operator=(other);
+    _target = other._target;
+  }
+  return *this;
+}
+
+AForm * PresidentialPardonForm::clone() const {
+  return new PresidentialPardonForm(*this);
+}
+
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
   if (!this->getFormSignature()) {
     std::cout << "Form is not signed, cannot be executed." << std::endl;

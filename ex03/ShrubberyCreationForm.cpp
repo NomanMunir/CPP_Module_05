@@ -6,6 +6,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), _target(other._target) {}
 
+AForm * ShrubberyCreationForm::clone() const
+{
+  return (new ShrubberyCreationForm(*this));
+}
+
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs) {
   if (this != &rhs) {
     AForm::operator=(rhs);

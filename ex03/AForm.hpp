@@ -23,7 +23,7 @@ class AForm
     bool getFormSignature() const ;
     void beSigned(const Bureaucrat& b);
     virtual void execute(Bureaucrat const & executor) const = 0;
-
+    virtual AForm * clone() const = 0 ;
   class GradeTooHighException : public std::exception
   {
     virtual const char* what() const throw() { return ("Grade too high!"); }

@@ -47,6 +47,7 @@ void AForm::execute(const Bureaucrat& executor) const
     throw NotSignedException();
   if (executor.getGrade() > this->getExeGrade())
     throw GradeTooLowException();
+  std::cout << "Form " << this->getName() << " is executed by " << executor.getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& o, const AForm& form)
